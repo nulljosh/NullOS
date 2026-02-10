@@ -6,25 +6,19 @@
  * See: docs/PHASES.md Phase 2
  */
 
-/* TODO: Include kernel headers
- * #include <kernel/vga.h>
- * #include <kernel/idt.h>
- * #include <kernel/isr.h>
- * #include <kernel/irq.h>
- * #include <kernel/timer.h>
- * #include <kernel/keyboard.h>
- * #include <kernel/shell.h>
- * #include <kernel/memory.h>
- * #include <kernel/paging.h>
- * #include <kernel/heap.h>
- */
+#include <kernel/vga.h>
+#include <lib/string.h>
 
-/* Kernel entry point -- called from assembly */
-void kmain(void)
-{
+/* Kernel entry point -- called from assembly at 0x100000 */
+void kmain(void) {
+    /* Initialize VGA driver for text output */
+    vga_init();
+    vga_puts("=== NullOS Kernel Boot ===\n");
+    vga_puts("Kernel entry point reached at 0x100000\n");
+    vga_puts("VGA text mode initialized (80x25)\n");
+    vga_puts("\n");
+    
     /* TODO: Phase 2 initialization
-     * vga_init();
-     * vga_puts("NullOS v0.1\n");
      * idt_init();
      * isr_init();
      * irq_init();
@@ -32,22 +26,26 @@ void kmain(void)
      * keyboard_init();
      * asm volatile("sti");   // Enable interrupts
      */
-
+    
+    vga_puts("Phase 2 (Interrupts): TODO\n");
+    
     /* TODO: Phase 3 initialization
      * pmm_init(memory_map);
      * paging_init();
      * heap_init(HEAP_START, HEAP_SIZE);
      */
-
+    
+    vga_puts("Phase 3 (Memory Management): TODO\n");
+    
     /* TODO: Phase 4 initialization
      * scheduler_init();
      */
-
-    /* TODO: Launch shell
-     * shell_run();
-     */
-
-    /* Halt -- should never reach here */
+    
+    vga_puts("Phase 4 (Multitasking): TODO\n");
+    vga_puts("\n");
+    vga_puts("Boot sequence complete. System ready.\n");
+    
+    /* Halt the system */
     for (;;) {
         asm volatile("hlt");
     }
