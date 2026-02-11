@@ -86,31 +86,31 @@ make clean
 
 ## Current Implementation Status
 
-**Phase 1: Bootloader** ✅ COMPLETE
-- ✅ Stage 1: Loads Stage 2 from disk
-- ✅ Stage 2: Enables A20 line, sets up GDT, enters protected mode
-- ✅ Jumps to kernel at 0x100000
+**Phase 1: Bootloader**  COMPLETE
+-  Stage 1: Loads Stage 2 from disk
+-  Stage 2: Enables A20 line, sets up GDT, enters protected mode
+-  Jumps to kernel at 0x100000
 
 **Phase 2: Kernel Basics** ⏳ IN PROGRESS
-- ✅ VGA text driver (80x25, hardware cursor, scrolling)
-- ✅ Basic string library (memory operations, string functions)
-- ✅ Kernel entry point (kmain) with initialization output
+-  VGA text driver (80x25, hardware cursor, scrolling)
+-  Basic string library (memory operations, string functions)
+-  Kernel entry point (kmain) with initialization output
 - ⏳ IDT and interrupt handling
 - ⏳ PS/2 keyboard driver
 - ⏳ Shell
 
-**Phase 3: Memory Management** 📋 TODO
+**Phase 3: Memory Management**  TODO
 - Physical memory manager (bitmap allocator)
 - Paging and virtual memory
 - Heap allocator (kmalloc/kfree)
 
-**Phase 4: Multitasking** 📋 TODO
+**Phase 4: Multitasking**  TODO
 - Process management
 - Round-robin scheduler
 - Context switching
 - System calls
 
-**Phase 5: Filesystem** 📋 TODO
+**Phase 5: Filesystem**  TODO
 - ATA/IDE disk driver
 - FAT12/16 filesystem
 - VFS abstraction layer
